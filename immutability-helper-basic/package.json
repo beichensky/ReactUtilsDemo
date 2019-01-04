@@ -1,0 +1,15 @@
+{
+  "name": "immutability-helper-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "immutability-helper": "^2.9.0"
+  }
+}
