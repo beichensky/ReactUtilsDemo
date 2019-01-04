@@ -1,4 +1,4 @@
-## Demo内容
+## immutability-helper-basic 项目内容
 详细介绍了 immutability-helper 插件的基本用法，对相关 API 以及注意事项做了详细注释。
 
 
