@@ -17,7 +17,7 @@ $ git clone https://github.com/beichensky/ReactUtilsDemo.git
 
 
 ## react-component-lifecycle
-详细介绍了 React 生命周期各个阶段的执行顺序。更多信息请查看[项目说明文档]((https://github.com/beichensky/ReactUtilsDemo/blob/master/react-component-lifecycle/README.md))
+详细介绍了 React 生命周期各个阶段的执行顺序。更多信息请查看[项目说明文档](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-component-lifecycle/README.md)
 
 
 
