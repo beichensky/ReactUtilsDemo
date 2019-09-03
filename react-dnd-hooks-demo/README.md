@@ -2,7 +2,8 @@
 该项目是一个稍微复杂一些的拖拽项目。使用 `react-hooks` 的方式实现了拖拽放置、拖拽排序等功能。
 
 效果图：
-[react-dnd-hooks-demo 预览](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-dnd-hooks-demo/拖拽并排序预览.gif)
+
+![react-dnd-hooks-demo 预览](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-dnd-hooks-demo/拖拽并排序预览.gif)
 
 
 ----- 

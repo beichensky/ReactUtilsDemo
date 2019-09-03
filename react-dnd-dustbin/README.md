@@ -1,6 +1,9 @@
 ## react-dnd-dustbin 项目内容
 该项目是一个 `Dustbin` 类型的 `Demo` ，里面是 `react-dnd` 的一些基本用法。代码量不多，通俗易懂。可以将项目拉下来看看运行效果，对照代码查看实现逻辑，效果更佳。
 
+效果图：
+
+![react-dnd-dustbin 预览](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-dnd-dustbin/Dustbin效果.gif)
 
 ----- 
 
