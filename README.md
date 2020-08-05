@@ -52,3 +52,9 @@ $ git clone https://github.com/beichensky/ReactUtilsDemo.git
 
 
 更多信息请查看：[项目说明文档](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-dnd-hooks-demo/README.md)
+
+
+## react-redux-demo
+
+详细介绍了 redux 和 react-redux 的用法。
+更多信息清查看：[项目说明文档](https://github.com/beichensky/ReactUtilsDemo/blob/master/react-redux-demo/README.md)
