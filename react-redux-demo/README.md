@@ -45,9 +45,5 @@ npm run start
   - `ConnectUseFunction`： `mapDispatchToProps` 参数为函数时用法
 
   - `ConnectUseObject`： `mapDispatchToProps` 参数为对象时用法
-  
+
   - `Hook`：使用 `hooks` 的方式获取 `dispath` 和 `state`
-
-## 更多
-
-如想了解更详细内容，可查看博客：[Redux 及 React Redux 使用指南](https://juejin.im/post/6857385078591488013/)
