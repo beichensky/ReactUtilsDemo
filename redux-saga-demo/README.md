@@ -13,8 +13,42 @@ cd redux-saga-demo
 npm install
 ```
 
-Run the demo
+Run the basic demo
 
 ```bash
 npm start
 ```
+
+Run the take demo
+
+```bash
+npm start:take
+```
+
+## basic demo
+
+`sage` 基本用法
+
+如何使用 saga：
+
+1. 引入 `saga` 任务
+
+2. `createSagaMiddleware` 创建 `saga` 中间件
+
+3. `applyMiddleware` 应用中间件，创建 `store`
+
+4. `run` 启动中间件
+
+## take demo
+
+`take` 的使用
+
+- take              : `action` 任务只执行一次
+
+- takeEvery         : `action` 任务每次都会执行
+
+- takeLatest        : 在异步任务执行时间内触发多次 `action` 任务，只执行最后一次
+
+- takeLeading       : 在极短时间内触发多次 `action` 任务，只执行第一次
+
+- throttle          : 节流，在给定市场内，只处理第一次接收到的 `action` 任务

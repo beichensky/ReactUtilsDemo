@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "babel-node basic/sagas.spec.js | tap-spec",
-    "start": "budo basic/main.js:build.js --dir ./ --verbose  --live -- -t babelify"
+    "start": "budo basic/main.js:build.js --dir ./ --verbose  --live -- -t babelify",
+    "start:take": "budo take/main.js:build.js --dir ./ --verbose  --live -- -t babelify"
   },
   "dependencies": {
     "babel-polyfill": "6.3.14",
