@@ -19,6 +19,12 @@ Run the basic demo
 npm start
 ```
 
+Run the call demo
+
+```bash
+npm start:call
+```
+
 Run the take demo
 
 ```bash
@@ -38,6 +44,16 @@ npm start:take
 3. `applyMiddleware` 应用中间件，创建 `store`
 
 4. `run` 启动中间件
+
+## call demo
+
+- call              : 阻塞异步任务，任务函数的参数作为后续参数传入
+
+- apply             : 阻塞异步任务，第一个参数必须是 context 上下文，任务函数的参数作为数组传入
+
+- fork              : 用法同 `call`，不进行阻塞，返回值是 `fork task`，`fork task` 可以被取消
+
+- cancel            : 取消 `fork task`
 
 ## take demo
 
