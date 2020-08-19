@@ -4,6 +4,8 @@ import HashRouter from "./HashRouter";
 import Link from "./Link";
 import Route from "./Route";
 import Switch from "./Switch";
+import Redirect from "./Redirect";
+import Prompt from "./Prompt";
 
 import withRouter from "./withRouter";
 import { useLocation, useRouteMatch, useHistory, useParams } from "./hook";
@@ -15,6 +17,8 @@ export {
   Link,
   Route,
   Switch,
+  Redirect,
+  Prompt,
   useLocation,
   useRouteMatch,
   useHistory,
