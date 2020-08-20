@@ -31,6 +31,12 @@ Run the take demo
 npm start:take
 ```
 
+Run the task demo
+
+```bash
+npm start:task
+```
+
 ## basic demo
 
 `sage` 基本用法
@@ -67,4 +73,14 @@ npm start:take
 
 - takeLeading       : 在极短时间内触发多次 `action` 任务，只执行第一次
 
-- throttle          : 节流，在给定市场内，只处理第一次接收到的 `action` 任务
+- throttle          : 节流，在给定时长内，只处理第一次接收到的 `action` 任务
+
+## task demo
+
+- 顺序执行异步任务：`const data = yield call(fn, args)`
+
+- 同时执行多个任务：`const datas = yield all([call(fn1, args1), call(fn2, args2), ...])`
+  > `yield all` 会等待所有异步任务执行结束，返回所有任务结果。若其中任一任务失败，则其他任务自动取消
+
+- 多个异步任务间启动 `race`：`const datas = yield race([call(fn1, args1), call(fn2, args2), ...])`
+  > `race` 会在其中任一任务完成时返回执行结果，其他任务自动取消
