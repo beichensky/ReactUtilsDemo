@@ -3,11 +3,22 @@
  * overview: 根据放入 Box 生成的 Card 组件
  */
 
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { XYCoord } from 'dnd-core';
 import { DragSourceMonitor, DropTargetMonitor, useDrag, useDrop } from 'react-dnd';
 import ItemTypes from '../ItemTypes';
-import IListData from '../interface/ListData'
+import IListData from '../interface/ListData';
+
+import OrderListSvg from '../assets/order-list.png';
+
+const svgStyle: React.CSSProperties = {
+    position: 'absolute',
+    width: 20,
+    height: 20,
+    top: 6,
+    left: 6,
+    cursor: 'move'
+};
 
 interface IProps {
     index: number;
@@ -15,10 +26,9 @@ interface IProps {
 }
 
 const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id }) => {
-
     const ref = useRef<HTMLDivElement>(null);
 
-    const [{isDragging}, drag] = useDrag({
+    const [{ isDragging }, drag, dragPreview] = useDrag({
         collect: (monitor: DragSourceMonitor) => ({
             isDragging: monitor.isDragging(),
         }),
@@ -26,31 +36,30 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
         item: { type: ItemTypes.Card, index },
     });
 
-    const [, drop ] = useDrop({
+    const [, drop] = useDrop({
         accept: ItemTypes.Card,
-        hover(item: { type: string; index: number; }, monitor: DropTargetMonitor) {
+        hover(item: { type: string; index: number }, monitor: DropTargetMonitor) {
             if (!ref.current) {
-				return;
+                return;
             }
-			const dragIndex = item.index;
+            const dragIndex = item.index;
             const hoverIndex = index;
-            
+
             // 拖拽元素下标与鼠标悬浮元素下标一致时，不进行操作
-			if (dragIndex === hoverIndex) {
-				return;
+            if (dragIndex === hoverIndex) {
+                return;
             }
 
-			// 确定屏幕上矩形范围
-			const hoverBoundingRect = ref.current!.getBoundingClientRect();
+            // 确定屏幕上矩形范围
+            const hoverBoundingRect = ref.current!.getBoundingClientRect();
 
-			// 获取中点垂直坐标
-			const hoverMiddleY =
-				(hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+            // 获取中点垂直坐标
+            const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
-			// 确定鼠标位置
-			const clientOffset = monitor.getClientOffset();
+            // 确定鼠标位置
+            const clientOffset = monitor.getClientOffset();
 
-			// 获取距顶部距离
+            // 获取距顶部距离
             const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
             /**
@@ -62,14 +71,14 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
              * 可以防止鼠标位于元素一半高度时元素抖动的状况
              */
 
-             // 向下拖动
-			if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-				return;
-			}
+            // 向下拖动
+            if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+                return;
+            }
 
             // 向上拖动
-			if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-				return;
+            if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+                return;
             }
 
             // 执行 move 回调函数
@@ -85,7 +94,8 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
         },
     });
 
-    const style: React.CSSProperties = {
+    const style: React.CSSProperties = useMemo(() => ({
+        position: 'relative',
         background: bg,
         margin: '16px 6px',
         // Card 为占位元素是，透明度 0.4，拖拽状态时透明度 0.2，正常情况透明度为 1
@@ -93,14 +103,20 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
         padding: '20px 0px',
         verticalAlign: 40,
         width: 288,
-    };
+    }), [bg, id, isDragging]);
 
-    // 使用 drag 和 drop 对 ref 进行包裹，则组件既可以进行拖拽也可以接收拖拽组件
-    drag(drop(ref));
-    
+    /**
+     * 使用 drag 和 drop 对 ref 进行包裹，则组件既可以进行拖拽也可以接收拖拽组件
+     * 使用 dragPreview 包裹组件，可以实现拖动时预览该组件的效果
+     */
+    dragPreview(drop(ref));
+
     return (
-        <div ref={ ref } style={ style }>{ category }</div>
-    )
-}
+        <div ref={ref} style={style}>
+            { id !== -1 && drag && drag(<img alt="" src={OrderListSvg} style={svgStyle} />) }
+            {category}
+        </div>
+    );
+};
 
 export default Card;

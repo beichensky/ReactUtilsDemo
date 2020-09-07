@@ -19,6 +19,7 @@ const Box: React.FC<IListData & IListProps> = ({bg, category, cardList, changeCa
         margin: 20,
         padding: '16px 30px',
         width: 100,
+        cursor: 'move'
     }
     
     const box = {
