@@ -1,3 +1,5 @@
-export default {
-	BOX: 'box'
-}
+const Types = {
+  BOX: 'box',
+};
+
+export default Types;
