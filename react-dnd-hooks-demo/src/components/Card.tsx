@@ -29,16 +29,17 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
     const ref = useRef<HTMLDivElement>(null);
 
     const [{ isDragging }, drag, dragPreview] = useDrag({
+        type: ItemTypes.Card,
         collect: (monitor: DragSourceMonitor) => ({
             isDragging: monitor.isDragging(),
         }),
         // item 中包含 index 属性，则在 drop 组件 hover 和 drop 是可以根据第一个参数获取到 index 值
-        item: { type: ItemTypes.Card, index },
+        item: { index },
     });
 
     const [, drop] = useDrop({
         accept: ItemTypes.Card,
-        hover(item: { type: string; index: number }, monitor: DropTargetMonitor) {
+        hover(item: any, monitor: DropTargetMonitor) {
             if (!ref.current) {
                 return;
             }

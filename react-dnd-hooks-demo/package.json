@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "24.0.18",
-    "@types/node": "12.7.3",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "immutability-helper": "^3.0.1",
-    "react": "^16.9.0",
-    "react-dnd": "^9.3.4",
-    "react-dnd-html5-backend": "^9.3.4",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.2",
-    "typescript": "3.6.2"
+    "@types/jest": "27.5.1",
+    "@types/node": "17.0.35",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
+    "immutability-helper": "^3.1.1",
+    "react": "^18.1.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "typescript": "4.6.4"
   },
   "scripts": {
     "start": "react-scripts start",
