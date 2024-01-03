@@ -8,12 +8,12 @@ const App = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <div style={{ paddingLeft: 200, paddingTop: 50 }}>
-        <div style={{ overflow: 'hidden', clear: 'both' }}>
+        <div>
           <Box name="Glass" />
           <Box name="Banana" />
           <Box name="Paper" />
         </div>
-        <div style={{ overflow: 'hidden', clear: 'both' }}>
+        <div>
           <Dustbin />
         </div>
       </div>

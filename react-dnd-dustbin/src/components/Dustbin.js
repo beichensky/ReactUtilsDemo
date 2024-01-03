@@ -2,16 +2,12 @@ import { useDrop } from 'react-dnd';
 import ItemTypes from '../types';
 
 const style = {
-  height: '12rem',
-  width: '12rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
+  height: '16rem',
+  width: '16rem',
+  marginTop: '3rem',
   color: 'white',
   padding: '1rem',
   textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
 };
 
 const Dustbin = () => {
@@ -36,8 +32,9 @@ const Dustbin = () => {
     backgroundColor = 'darkkhaki';
   }
 
-  // 使用 connectDropTarget 包裹住 DOM 节点，使其可以接收对应的 drag source 组件
-  // connectDropTarget 包裹住的 DOM 节点才能接收 drag source 组件
+  /**
+   * 将 drop 赋值给对应元素的 ref，即可支持放置 drag 元素
+   */
   return (
     <div ref={drop} style={{ ...style, backgroundColor }}>
       {isActive ? 'Release to drop' : 'Drag a box here'}

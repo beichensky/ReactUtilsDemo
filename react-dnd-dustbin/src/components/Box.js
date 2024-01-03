@@ -3,13 +3,11 @@ import { useDrag } from 'react-dnd';
 import ItemTypes from '../types';
 
 const style = {
+  display: 'inline-block',
   border: '1px dashed gray',
-  backgroundColor: 'white',
   padding: '0.5rem 1rem',
   marginRight: '1.5rem',
-  marginBottom: '1.5rem',
   cursor: 'move',
-  float: 'left',
 };
 
 const Box = (props) => {
@@ -22,7 +20,10 @@ const Box = (props) => {
       isDragging: monitor.isDragging(),
     }),
     end: (item, monitor) => {
-      // 拖拽元素放下时，drop 结果
+      /**
+       * 拖拽元素放下时，获取 drop 结果
+       * 获取到的内容是 drop 元素在 drop 回调时返回的内容
+       */
       const dropResult = monitor.getDropResult();
 
       // 如果 drop 结果存在，就弹出 alert 提示
@@ -33,8 +34,10 @@ const Box = (props) => {
   }));
 
   const opacity = isDragging ? 0.4 : 1;
-  // 使用 connectDragSource 包裹住 DOM 节点，使其可以接受各种拖动 API
-  // connectDragSource 包裹住的 DOM 节点才可以被拖动
+
+  /**
+   * 将 drag 赋值给对应元素的 ref，即可支持拖拽
+   */
   return (
     <div style={{ ...style, opacity }} ref={drag}>
       {name}
